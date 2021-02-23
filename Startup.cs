@@ -8,7 +8,6 @@ using csharp_contractors.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,12 +29,12 @@ namespace csharp_contractors
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddControllers();
       services.AddTransient<ContractorsService>();
       services.AddTransient<JobsService>();
       services.AddTransient<ContractorsRepository>();
       services.AddTransient<JobsRepository>();
 
-      services.AddControllers();
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "csharp_contractors", Version = "v1" });
@@ -46,7 +45,7 @@ namespace csharp_contractors
 
     private IDbConnection CreateDbConnection()
     {
-      string connectionString = Configuration["DbType:gearhost"];
+      string connectionString = Configuration["db:gearhost"];
       return new MySqlConnection(connectionString);
     }
 

@@ -17,13 +17,13 @@ namespace csharp_contractors.Repositories
 
     internal IEnumerable<Job> GetAll()
     {
-      string sql = "SELECT FROM * jobs;";
+      string sql = "SELECT * FROM jobs;";
       return _db.Query<Job>(sql);
     }
 
     internal Job GetById(int id)
     {
-      string sql = "SELECT FROM * jobs WHERE id = @id;";
+      string sql = "SELECT * FROM jobs WHERE id = @id;";
       return _db.QueryFirstOrDefault<Job>(sql, new { id });
     }
 

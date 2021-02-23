@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace csharp_contractors.Controllers
 {
-  [ApiController]
   [Route("api/[controller]")]
-  class JobsController : ControllerBase
+  [ApiController]
+  public class JobsController : ControllerBase
   {
     private readonly JobsService _jobsService;
     public JobsController(JobsService jobsService)

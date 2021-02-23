@@ -7,7 +7,7 @@ namespace csharp_contractors.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  class ContractorsController : ControllerBase
+  public class ContractorsController : ControllerBase
   {
     private readonly ContractorsService _contractorsService;
     public ContractorsController(ContractorsService contractorsService)
